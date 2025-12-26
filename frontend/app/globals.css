@@ -107,16 +107,44 @@
 }
 
 body {
-  background-color: var(--background);
+  /* Fallback background color */
+  background-color: #000000;
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Background images - mobile and desktop */
+  background-image: url('/bg-mobile.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url('/bg-desktop.png');
+  }
 }
 
 /* Smooth scrolling for single-page experience */
 html {
   scroll-behavior: smooth;
+  /* Ensure background is on html element too */
+  background-color: #000000;
+  background-image: url('/bg-mobile.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    background-image: url('/bg-desktop.png');
+  }
 }
 
 /* Custom scrollbar (optional) */

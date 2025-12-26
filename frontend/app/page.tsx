@@ -1,59 +1,35 @@
+import Hero from "@/components/sections/Hero";
+import File from "@/components/sections/File";
+import Experiments from "@/components/sections/Experiments";
+import Abilities from "@/components/sections/Abilities";
+import Battles from "@/components/sections/Battles";
+import Signal from "@/components/sections/Signal";
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen">
-        {/* Hero component will go here */}
-        <div className="container mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold">Hero Section</h1>
-          <p className="text-muted-foreground mt-4">Interactive image hover reveal</p>
-        </div>
-      </section>
+    <main className="min-h-screen relative">
+      {/* Very light overlay to ensure text readability */}
+      <div className="fixed inset-0 bg-black/10 pointer-events-none z-0" />
+      
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <Hero />
 
       {/* The File Section (About) */}
-      <section id="file" className="min-h-screen">
-        {/* File component will go here */}
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold">The File</h2>
-          <p className="text-muted-foreground mt-4">About section</p>
-        </div>
-      </section>
+      <File />
 
       {/* Experiments Section (Projects) */}
-      <section id="experiments" className="min-h-screen">
-        {/* Experiments component will go here */}
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold">Experiments</h2>
-          <p className="text-muted-foreground mt-4">Projects showcase</p>
-        </div>
-      </section>
+      <Experiments />
 
       {/* Abilities Section (Skills) */}
-      <section id="abilities" className="min-h-screen">
-        {/* Abilities component will go here */}
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold">Abilities</h2>
-          <p className="text-muted-foreground mt-4">Skills section</p>
-        </div>
-      </section>
+      <Abilities />
 
       {/* Battles Section (Experience) */}
-      <section id="battles" className="min-h-screen">
-        {/* Battles component will go here */}
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold">Battles</h2>
-          <p className="text-muted-foreground mt-4">Experience/work history</p>
-        </div>
-      </section>
+      <Battles />
 
       {/* Signal Section (Contact) */}
-      <section id="signal" className="min-h-screen">
-        {/* Signal component will go here */}
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold">Signal</h2>
-          <p className="text-muted-foreground mt-4">Contact form</p>
-        </div>
-      </section>
+      <Signal />
+      </div>
     </main>
   );
 }
