@@ -1,59 +1,95 @@
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Layer - Very transparent to show body background */}
-      <div className="absolute inset-0 z-0 bg-black/10">
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/10" />
+    <section 
+      id="hero" 
+      className="relative min-h-screen overflow-hidden"
+    >
+      {/* Background Layer - Full Viewport Gradient */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(139, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 50%, #000000 100%)',
+        }}
+      >
+        {/* Vignette Effect */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.9) 100%)',
+          }}
+        />
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Left: Text Content */}
-          <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
-              Pratham Dubey
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-white/80 mb-2">
-              Full Stack Developer
-            </p>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/60 mb-8">
-              Building systems that survive chaos
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="px-6 py-3 bg-white text-black font-semibold rounded-md text-base sm:text-lg">
-                Enter the Upside Down
-              </button>
-              <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-md text-base sm:text-lg">
-                View the File
-              </button>
-            </div>
-          </div>
+      {/* Image Container - Viewport-Based Sizing, Centered */}
+      <div className="absolute inset-0 flex items-center justify-center z-5" style={{ paddingTop: '10vh' }}>
+        <div 
+          className="relative overflow-hidden"
+          style={{
+            height: '72vh',
+            width: 'auto',
+            maxWidth: '100%',
+          }}
+        >
+          <img
+            src="/hero-image.png"
+            alt="Pratham Dubey"
+            className="h-full w-auto object-cover"
+            style={{
+              objectPosition: 'center top',
+            }}
+          />
+        </div>
+      </div>
 
-          {/* Right: Centered Image Container */}
-          <div className="flex-1 flex items-center justify-center">
-            <div className="relative w-[260px] h-[340px] md:w-[320px] md:h-[420px]">
-              {/* Human image placeholder - will be replaced with actual image */}
-              <div className="w-full h-full bg-white/10 rounded-lg border border-white/20 flex items-center justify-center">
-                <span className="text-white/40 text-sm">Human Image</span>
-              </div>
-              {/* Actual image will be:
-              <Image
-                src="/hero-image.jpg"
-                alt="Pratham Dubey"
-                fill
-                className="object-cover rounded-lg"
-                priority
-              />
-              */}
-            </div>
-          </div>
+      {/* Content Layer - Text starts after ~50% viewport height */}
+      <div 
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8"
+        style={{
+          paddingTop: '50vh',
+          paddingBottom: '4rem',
+        }}
+      >
+        {/* Text Block - Overlaid on Image */}
+        <div className="text-center space-y-2 md:space-y-3 mb-6 md:mb-8">
+          {/* Name - Red with glow */}
+          <h1 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tight"
+            style={{
+              color: '#ff2a2a',
+              textShadow: '0 0 20px rgba(255, 42, 42, 0.8), 0 0 40px rgba(255, 42, 42, 0.4)',
+            }}
+          >
+            PRATHAM DUBEY
+          </h1>
+          
+          {/* Role */}
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 uppercase tracking-wide">
+            FULL STACK DEVELOPER
+          </p>
+          
+          {/* Tagline */}
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-400 uppercase tracking-widest">
+            BUILDING SYSTEMS THAT SURVIVE CHAOS
+          </p>
+        </div>
+
+        {/* CTA Buttons - Overlaid on Image */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          {/* Button 1: Enter the Upside Down */}
+          <button 
+            className="px-6 py-3 border-2 border-red-500 bg-transparent text-white uppercase tracking-wide font-medium rounded"
+          >
+            ENTER THE UPSIDE DOWN
+          </button>
+          
+          {/* Button 2: View the File */}
+          <button 
+            className="px-6 py-3 border-2 border-red-500 bg-transparent text-white uppercase tracking-wide font-medium rounded"
+          >
+            VIEW THE FILE
+          </button>
         </div>
       </div>
     </section>
   );
 }
-
